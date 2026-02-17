@@ -112,7 +112,23 @@ FIRESTORE_COLLECTION_CONVERSATIONS = "conversations"
 def _parse_origins(value: str | None) -> List[str]:
     if not value:
         return []
-    return [o.strip() for o in value.split(",") if o.strip()]
+    origins: List[str] = []
+    for raw in value.split(","):
+        o = (raw or "").strip().strip('"').strip("'")
+        if not o:
+            continue
+        # Render / dashboards often include a trailing slash; browsers send Origin without it.
+        o = o.rstrip("/")
+        origins.append(o)
+    # Preserve order while de-duping.
+    deduped: List[str] = []
+    seen = set()
+    for o in origins:
+        if o in seen:
+            continue
+        seen.add(o)
+        deduped.append(o)
+    return deduped
 
 
 cors_origins = _parse_origins(os.getenv("CORS_ORIGINS"))
