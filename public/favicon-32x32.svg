@@ -1,0 +1,30 @@
+<svg width="32" height="32" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="swasthaiBrand" x1="40" y1="216" x2="216" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2563EB" />
+      <stop offset="0.5" stop-color="#7C3AED" />
+      <stop offset="1" stop-color="#F472B6" />
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M128 24 L206 68 V156 L128 200 L50 156 V68 L128 24 Z"
+    stroke="url(#swasthaiBrand)"
+    stroke-width="22"
+    stroke-linejoin="round"
+  />
+
+  <path
+    d="M128 172
+       C104 156 76 134 76 104
+       C76 82 92 66 112 66
+       C120 66 126 69 128 74
+       C130 69 136 66 144 66
+       C164 66 180 82 180 104
+       C180 134 152 156 128 172 Z"
+    stroke="url(#swasthaiBrand)"
+    stroke-width="22"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+</svg>

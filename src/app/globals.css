@@ -1,0 +1,358 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Safe Area Insets */
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+
+    /* Deep Navy + Mint System */
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 213.8 47.1% 93.3%;
+
+    /* Explicit hex variables (for UI-only styling hooks) */
+    --bg-primary: #0F172A;
+    --bg-secondary: #111C2D;
+    --card-bg: #162336;
+    --card-hover: #1C2B42;
+    --hex-primary: #2ED3A0;
+    --hex-secondary: #5B8CFF;
+    --text-primary: #E6EDF6;
+    --text-secondary: #A7B4C7;
+
+    --card: 215.6 42.1% 14.9%;
+    --card-foreground: 213.8 47.1% 93.3%;
+
+    --popover: 215.6 42.1% 14.9%;
+    --popover-foreground: 213.8 47.1% 93.3%;
+
+    /* Mint primary */
+    --primary: 161.5 65.2% 50.4%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    /* Blue secondary */
+    --secondary: 222.1 100.0% 67.8%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 216.4 45.2% 12.2%;
+    --muted-foreground: 215.6 22.2% 71.8%;
+
+    --accent: 216.3 40.4% 18.4%;
+    --accent-foreground: 213.8 47.1% 93.3%;
+
+    --destructive: 0.0 100.0% 68.4%;
+    --destructive-foreground: 222.2 47.4% 11.2%;
+
+    --border: 0 0% 100% / 0.06;
+    --input: 215.6 42.1% 14.9%;
+    --ring: 161.5 65.2% 50.4%;
+
+    /* Charts */
+    --chart-1: 161.5 65.2% 50.4%;
+    --chart-2: 222.1 100.0% 67.8%;
+    --chart-3: 29.4 100.0% 63.1%;
+    --chart-4: 0.0 100.0% 68.4%;
+    --chart-5: 215.6 22.2% 71.8%;
+
+    --radius: 1rem;
+
+    /* Sidebar */
+    --sidebar-background: 216.4 45.2% 12.2%;
+    --sidebar-foreground: 213.8 47.1% 93.3%;
+    --sidebar-primary: 161.5 65.2% 50.4%;
+    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
+    --sidebar-accent: 215.6 42.1% 14.9%;
+    --sidebar-accent-foreground: 213.8 47.1% 93.3%;
+    --sidebar-border: 0 0% 100% / 0.06;
+    --sidebar-ring: 222.1 100.0% 67.8%;
+  }
+
+  .dark {
+    /* Keep dark mode aligned with the system palette */
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 213.8 47.1% 93.3%;
+
+    /* Explicit hex variables (mirror :root) */
+    --bg-primary: #0F172A;
+    --bg-secondary: #111C2D;
+    --card-bg: #162336;
+    --card-hover: #1C2B42;
+    --hex-primary: #2ED3A0;
+    --hex-secondary: #5B8CFF;
+    --text-primary: #E6EDF6;
+    --text-secondary: #A7B4C7;
+
+    --card: 215.6 42.1% 14.9%;
+    --card-foreground: 213.8 47.1% 93.3%;
+
+    --popover: 215.6 42.1% 14.9%;
+    --popover-foreground: 213.8 47.1% 93.3%;
+
+    --primary: 161.5 65.2% 50.4%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 222.1 100.0% 67.8%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 216.4 45.2% 12.2%;
+    --muted-foreground: 215.6 22.2% 71.8%;
+
+    --accent: 216.3 40.4% 18.4%;
+    --accent-foreground: 213.8 47.1% 93.3%;
+
+    --destructive: 0.0 100.0% 68.4%;
+    --destructive-foreground: 222.2 47.4% 11.2%;
+
+    --border: 0 0% 100% / 0.06;
+    --input: 215.6 42.1% 14.9%;
+    --ring: 161.5 65.2% 50.4%;
+
+    --chart-1: 161.5 65.2% 50.4%;
+    --chart-2: 222.1 100.0% 67.8%;
+    --chart-3: 29.4 100.0% 63.1%;
+    --chart-4: 0.0 100.0% 68.4%;
+    --chart-5: 215.6 22.2% 71.8%;
+
+    --sidebar-background: 216.4 45.2% 12.2%;
+    --sidebar-foreground: 213.8 47.1% 93.3%;
+    --sidebar-primary: 161.5 65.2% 50.4%;
+    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
+    --sidebar-accent: 215.6 42.1% 14.9%;
+    --sidebar-accent-foreground: 213.8 47.1% 93.3%;
+    --sidebar-border: 0 0% 100% / 0.06;
+    --sidebar-ring: 222.1 100.0% 67.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll on mobile */
+    font-size: 14px;
+    /* Base font size for better mobile readability */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    /* Root font size */
+  }
+
+  /* Ensure consistent sizing model and prevent overflow from padding on 100% width elements */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Media elements should never overflow their containers */
+  img,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Improve touch targets on mobile */
+  button,
+  [role="button"],
+  input[type="submit"],
+  input[type="button"] {
+    min-height: 44px;
+    /* Apple's recommended minimum touch target */
+    min-width: 44px;
+  }
+
+  /* Better text rendering */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Prevent zoom on input focus on iOS */
+  @media screen and (max-width: 768px) {
+
+    input,
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
+  }
+}
+
+@layer utilities {
+
+  /* Ultra Minimal Utilities - Flat, Matte, No Blur */
+  .glass-panel {
+    @apply bg-card border border-border shadow-sm;
+    /* Removed backdrop-blur and transparency */
+  }
+
+  .glass-button {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-200 shadow-none;
+    /* Flatter button */
+  }
+
+  /* Nullify flashy effects if classes are still present in JSX */
+  .text-glow {
+    text-shadow: none;
+  }
+
+  .button-glow {
+    box-shadow: none;
+  }
+
+  .gradient-text {
+    background: none;
+    -webkit-text-fill-color: inherit;
+    color: hsl(var(--primary));
+  }
+
+  .text-gradient {
+    color: hsl(var(--primary));
+  }
+
+  .gradient-border {
+    @apply rounded-full border border-border bg-transparent p-[2px];
+  }
+
+  .gradient-border-inner {
+    @apply rounded-full bg-card;
+  }
+
+  .gradient-input {
+    @apply border border-border bg-card;
+  }
+
+  .gradient-nav {
+    @apply bg-background text-foreground border-b border-border;
+  }
+
+  .gradient-sidebar {
+    @apply bg-sidebar text-sidebar-foreground;
+  }
+
+  .gradient-border-card {
+    @apply rounded-2xl border border-border bg-transparent shadow-sm;
+  }
+
+  .gradient-border-card-inner {
+    @apply rounded-2xl bg-card text-card-foreground border-0 shadow-none;
+    height: 100%;
+  }
+}
+
+
+/* Scrollbar utilities */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.6);
+}
+
+/* Mobile status bar and PWA optimizations */
+@supports (padding: max(0px)) {
+  body {
+    /* Safe area support for iOS devices with notch */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Ensure full viewport height on mobile */
+html {
+  height: 100%;
+  height: 100vh;
+  height: 100dvh;
+  /* Dynamic viewport height for mobile */
+}
+
+body {
+  min-height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+
+  /* Reduce font sizes slightly on mobile for better space utilization */
+  h1 {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
+
+  h3 {
+    font-size: 1.125rem !important;
+    line-height: 1.75rem !important;
+  }
+
+  /* Better card spacing on mobile */
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  /* Optimize button sizing for mobile */
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  /* Better form input spacing */
+  .form-input {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Tablet-specific optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* Optimize for tablet layouts */
+  body {
+    font-size: 15px;
+  }
+}
